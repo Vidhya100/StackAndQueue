@@ -12,11 +12,6 @@
                 
             list.Display();
 
-            while (!list.IsEmpty())
-            {
-                list.Peek();
-                list.Pop();
-            }
          }
     }
 }
