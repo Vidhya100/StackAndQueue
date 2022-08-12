@@ -12,7 +12,10 @@
                 
             list.Display();
 
-            
+            while (!list.IsEmpty())
+            {
+                list.Dequeue();
+            }
          }
     }
 }
