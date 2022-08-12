@@ -52,5 +52,50 @@ namespace StackAndQueue
             }
         }
 
+        public void Peek()
+        {
+            
+            if (head == null)
+            {
+                Console.WriteLine("LinkedList is empty\n");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Top of list is {0}  \n ",head.data);
+            }  
+        }
+
+        public void Pop() 
+        {
+            if (head == null)
+            {
+                Console.WriteLine("LinkedList is empty, so deletion can't possible");
+                return;
+            }
+            else 
+            {
+                Console.WriteLine("{0} is poped", head.data);
+                head = head.next;
+                
+                
+            }
+
+        }
+
+        public bool IsEmpty()
+        {
+            
+            if(head == null)
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+          
+        }
+
     }
 }
