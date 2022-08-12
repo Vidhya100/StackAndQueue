@@ -6,39 +6,37 @@ using System.Threading.Tasks;
 
 namespace StackAndQueue
 {
-    public class LinkedListStack
+    public class LinkedListQueue
     {
-         Node head;
-        Node current;
-        public LinkedListStack()
+         Node last;
+         Node first;
+        public LinkedListQueue()
         {
-            this.head = null;
+            this.last = null;
+            this.first = null;
         }
-        public void Push(int data)
+        public void Enqueue(int data)
         {
             Node node = new Node(data);
             //no first node added to list
-            if (this.head == null)
+            if (this.last == null || this.first == null)
             {
-                this.head = node;
+                this.last = node;
+                this.first = node;
             }
             else
             {
-                Node temp = head;
-                while (temp.next != null)
-                {
-                    temp = temp.next;
-
-                }
-                //assigning node to temp->next
-                temp.next = node;
+               last.next = node;
+                //node.prev = last;
+                last = node;
+                
             }
             Console.WriteLine("{0} data is inserted \n", node.data);
 
         }
         public void Display()
         {
-            Node temp = this.head;
+            Node temp = this.first;
 
             if (temp == null)
             {
@@ -52,32 +50,24 @@ namespace StackAndQueue
             }
         }
 
-        public void Peek()
-        {
-            
-            if (head == null)
-            {
-                Console.WriteLine("LinkedList is empty\n");
-                return;
-            }
-            else
-            {
-                Console.WriteLine("Top of list is {0}  \n ",head.data);
-            }  
-        }
+       
 
-        public void Pop() 
+        public void Dequeue() 
         {
-            if (head == null)
+            if (first == null)
             {
-                Console.WriteLine("LinkedList is empty, so deletion can't possible");
+                Console.WriteLine("LinkedList Queue is empty, so deletion can't possible");
                 return;
             }
             else 
             {
-                Console.WriteLine("{0} is poped", head.data);
-                head = head.next;
-                
+                Console.WriteLine("{0} is removed", first.data);
+                first = first.next;
+                //if queue become empty last must be null
+                if (first == null)
+                {
+                    last = null;
+                }
                 
             }
 
@@ -86,7 +76,7 @@ namespace StackAndQueue
         public bool IsEmpty()
         {
             
-            if(head == null)
+            if(first == null || last == null)
             {
                 return true;
             }

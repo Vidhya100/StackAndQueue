@@ -4,19 +4,15 @@
     {
         public static void Main(string[] args)
         {
-            LinkedListStack list = new LinkedListStack();
+            LinkedListQueue list = new LinkedListQueue();
 
-            list.Push(56);
-            list.Push(30);
-            list.Push(70);
+            list.Enqueue(56);
+            list.Enqueue(30);
+            list.Enqueue(70);
                 
             list.Display();
 
-            while (!list.IsEmpty())
-            {
-                list.Peek();
-                list.Pop();
-            }
+            
          }
     }
 }

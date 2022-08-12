@@ -10,9 +10,13 @@ namespace StackAndQueue
     {
         public int data;
         public Node next;
+        //public Node prev;
 
         public Node(int data)
-        { 
+        {
+            //for not taking garbage value
+            this.next = null;
+           // this.prev = null;
             this.data = data;
         }
     }
